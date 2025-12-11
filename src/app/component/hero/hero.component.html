@@ -1,0 +1,275 @@
+<div #section id="home">
+  <!-- click anywhere to close the contact popover -->
+  <section
+    id="hero"
+    class="relative bg-[#0b0f14] text-white overflow-hidden"
+    (click)="closeContact()"
+  >
+    <!-- Animated background: gradient pan + subtle grid + METEORS -->
+    <div class="pointer-events-none absolute inset-0">
+      <div class="bg-gradient-pan"></div>
+      <div class="bg-grid-anim"></div>
+
+      <!-- Meteor field (pure CSS) -->
+      <ul class="meteors" aria-hidden="true">
+        <!-- Each <li> is a meteor; positions & timings via CSS vars -->
+        <li
+          style="--top: -6%; --left: 5%; --len: 160px; --dur: 6.5s; --delay: 0s"
+        ></li>
+        <li
+          style="--top: 2%; --left: 15%; --len: 130px; --dur: 7.2s; --delay: 1s"
+        ></li>
+        <li
+          style="
+            --top: -8%;
+            --left: 28%;
+            --len: 180px;
+            --dur: 6.8s;
+            --delay: 2.2s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 10%;
+            --left: -5%;
+            --len: 140px;
+            --dur: 7.8s;
+            --delay: 0.8s;
+          "
+        ></li>
+        <li
+          style="
+            --top: -4%;
+            --left: 45%;
+            --len: 170px;
+            --dur: 6.2s;
+            --delay: 1.6s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 6%;
+            --left: 60%;
+            --len: 150px;
+            --dur: 7.4s;
+            --delay: 0.3s;
+          "
+        ></li>
+        <li
+          style="
+            --top: -9%;
+            --left: 72%;
+            --len: 190px;
+            --dur: 6.6s;
+            --delay: 2.7s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 12%;
+            --left: 82%;
+            --len: 140px;
+            --dur: 7.6s;
+            --delay: 1.1s;
+          "
+        ></li>
+        <li
+          style="
+            --top: -7%;
+            --left: 90%;
+            --len: 160px;
+            --dur: 6.9s;
+            --delay: 3.2s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 18%;
+            --left: -10%;
+            --len: 150px;
+            --dur: 7.9s;
+            --delay: 2s;
+          "
+        ></li>
+
+        <li
+          style="
+            --top: 28%;
+            --left: 6%;
+            --len: 170px;
+            --dur: 7.1s;
+            --delay: 0.7s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 22%;
+            --left: 22%;
+            --len: 150px;
+            --dur: 8s;
+            --delay: 2.1s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 26%;
+            --left: 38%;
+            --len: 130px;
+            --dur: 7.2s;
+            --delay: 1.2s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 32%;
+            --left: 54%;
+            --len: 180px;
+            --dur: 6.6s;
+            --delay: 2.8s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 24%;
+            --left: 70%;
+            --len: 160px;
+            --dur: 7.4s;
+            --delay: 1.6s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 36%;
+            --left: 86%;
+            --len: 150px;
+            --dur: 7.7s;
+            --delay: 0.9s;
+          "
+        ></li>
+
+        <li
+          style="
+            --top: 48%;
+            --left: 12%;
+            --len: 150px;
+            --dur: 7.6s;
+            --delay: 1.3s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 44%;
+            --left: 30%;
+            --len: 180px;
+            --dur: 6.9s;
+            --delay: 2.4s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 52%;
+            --left: 58%;
+            --len: 160px;
+            --dur: 7.3s;
+            --delay: 0.4s;
+          "
+        ></li>
+        <li
+          style="
+            --top: 46%;
+            --left: 78%;
+            --len: 150px;
+            --dur: 7.8s;
+            --delay: 2.2s;
+          "
+        ></li>
+      </ul>
+    </div>
+
+    <!-- Content -->
+    <div
+      class="relative max-w-7xl mx-auto px-6 lg:px-10 py-10 lg:py-12 min-h-[75vh]"
+    >
+      <div
+        #left
+        class="left-spotlight group relative space-y-6 lg:space-y-7 rounded-2xl p-6 lg:p-8 ring-1 ring-white/10 bg-white/5 backdrop-blur-md"
+      >
+        <!-- spotlight using --mx/--my -->
+        <div
+          class="pointer-events-none absolute inset-0 rounded-2xl opacity-0 lg:group-hover:opacity-100 transition bg-[radial-gradient(360px_260px_at_var(--mx,50%)_var(--my,50%),rgba(163,230,53,0.12),transparent_60%)]"
+        ></div>
+
+        <div
+          class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide px-3 py-1 rounded-full bg-lime-400/10 text-lime-300 ring-1 ring-lime-300/20"
+        >
+          <span
+            class="h-1.5 w-1.5 rounded-full bg-lime-300 animate-pulse"
+          ></span>
+          Available for Full-Time & Projects
+        </div>
+
+        <h1
+          #headline
+          class="text-balance text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight"
+        >
+          <span
+            class="block bg-gradient-to-r from-lime-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent"
+          >
+            Hi, I’m Shauk👋
+          </span>
+        </h1>
+
+        <!-- Role pills -->
+        <ul class="roles" aria-label="Roles">
+          <li>Data Solution Architect</li>
+          <li>Multi-Cloud Streaming &amp; Data Platform Specialist</li>
+          <li>ETL &amp; Data Warehouse Expert</li>
+        </ul>
+
+        <p #subhead class="text-white/70 max-w-2xl leading-relaxed">
+          Data Solution Architect with 12+ years of experience designing
+          scalable multi-cloud data platforms on AWS, Azure, and GCP. Expert in
+          real-time streaming, large-scale ETL, and modern architectures such as
+          Data Mesh and Lakehouse, with hands-on expertise in LLMOps, Data
+          Observability, and GenAI-driven workflows. Recognized for optimizing
+          performance, ensuring governance and compliance, mentoring teams, and
+          delivering measurable business impact through cost savings and faster
+          insights. Skilled in partnering with stakeholders to align data
+          strategies with enterprise goals, and proven in leading
+          cross-functional initiatives that accelerate digital transformation.
+        </p>
+
+        <!-- CTA + Contact popover -->
+        <div class="relative flex flex-wrap items-center gap-4">
+          <a #ctaPrimary href="#projects" class="btn-primary"
+            >View Case Studies</a
+          >
+
+          <button
+            #ctaGhost
+            type="button"
+            class="btn-ghost"
+            (click)="toggleContact($event)"
+          >
+            Contact Me
+          </button>
+
+          <div
+            *ngIf="showContact"
+            class="contact-popover"
+            role="dialog"
+            aria-label="Contact options"
+            (click)="$event.stopPropagation()"
+          >
+            <a class="contact-item" href="mailto:shaukhassan458@gmail.com"
+              >✉️&nbsp; shaukhassan458&#64;gmail.com</a
+            >
+            <a class="contact-item" href="tel:+12133494589"
+              >📞&nbsp; (+1) 213-349-4589</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

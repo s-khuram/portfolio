@@ -1,0 +1,30 @@
+<nav class="site-nav sticky top-0 z-50 text-white">
+  <!-- tiny scroll progress (optional) -->
+  <div class="progress-track">
+    <div class="progress-bar" [style.width.%]="scrollProgress()"></div>
+  </div>
+
+  <div class="container mx-auto px-4 lg:px-8">
+    <div class="h-14 flex items-center justify-center">
+      <!-- just buttons -->
+      <div #listWrap class="nav-list-wrap">
+        <ul #navList class="nav-list">
+          <li *ngFor="let it of items">
+            <button
+              #navBtn
+              type="button"
+              class="nav-pill"
+              [class.is-active]="activeId() === it.id"
+              (click)="goTo(it.id)"
+              [attr.data-id]="it.id"
+            >
+              {{ it.label }}
+            </button>
+          </li>
+        </ul>
+        <!-- active “ink” underline (outside <ul> for a11y) -->
+        <span #indicator class="nav-indicator" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</nav>

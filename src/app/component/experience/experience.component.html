@@ -1,0 +1,62 @@
+<section id="experience" class="xp-wrap" aria-labelledby="xp-title">
+  <!-- ⭐ shooting-stars background -->
+  <div class="shooting-bg" aria-hidden="true">
+    <div class="meteor-field">
+      <span #meteor class="meteor" *ngFor="let _ of meteors"></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Section head -->
+    <div class="section-head">
+      <h2 id="xp-title" class="section-title">
+        <span class="grad">Experience</span>
+      </h2>
+      <p class="section-sub">
+        A timeline of hands-on work across healthcare, finance, and insurance building modern data platforms,
+        streaming pipelines, and analytics.
+      </p>
+      <div class="section-rule" aria-hidden="true"></div>
+    </div>
+
+    <!-- Timeline grid -->
+    <div class="xp-grid">
+      <div class="rail" aria-hidden="true">
+        <div class="line"></div>
+        <div class="progress" #progress></div>
+      </div>
+
+      <div class="items">
+        <article *ngFor="let xp of experiences; let i = index" class="xp-item">
+          <div class="xp-dot" #dot aria-hidden="true"></div>
+
+          <div class="xp-card" #card>
+            <header class="xp-head">
+              <div class="role">{{ xp.role }}</div>
+              <div class="meta">
+                <span class="company">{{ xp.company }}</span>
+                <span class="sep">•</span>
+                <span class="period">{{ xp.period }}</span>
+              </div>
+            </header>
+
+            <ul class="points">
+              <li *ngFor="let p of visibleBullets(i); trackBy: trackByIndex">
+                {{ p }}
+              </li>
+            </ul>
+
+            <button
+              *ngIf="xp.bullets.length > maxBullets"
+              class="toggle"
+              type="button"
+              (click)="toggle(i)"
+              [attr.aria-expanded]="isExpanded(i)">
+              {{ isExpanded(i) ? 'Show less' : 'Show more' }}
+            </button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

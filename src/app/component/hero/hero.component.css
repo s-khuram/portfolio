@@ -1,0 +1,121 @@
+:host { display: block; }
+
+/* Mouse spotlight defaults */
+.left-spotlight { --mx: 50%; --my: 50%; }
+
+/* ===== Global animated background ===== */
+.bg-gradient-pan{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(640px 420px at 14% 18%, rgba(59,130,246,0.12), transparent 60%),
+    radial-gradient(720px 520px at 86% 82%, rgba(34,197,94,0.11), transparent 60%),
+    radial-gradient(520px 380px at 50% 50%, rgba(99,102,241,0.08), transparent 65%);
+  animation: gradient-pan 28s ease-in-out infinite alternate;
+}
+@keyframes gradient-pan {
+  0%   { transform: translate(-5%, -3%) scale(1); }
+  50%  { transform: translate(6%, 4%) scale(1.03); }
+  100% { transform: translate(-2%, 5%) scale(1.01); }
+}
+
+.bg-grid-anim {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px;
+  background-position: 0 0, 0 0;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  animation: grid-pan 40s linear infinite;
+}
+@keyframes grid-pan {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 256px 160px, 256px 160px; }
+}
+
+/* ===== Meteor field (shooting stars) ===== */
+.meteors {
+  position:absolute; inset:-12% -12% -12% -12%;
+  overflow:hidden; filter: drop-shadow(0 0 6px rgba(94,234,212,.45));
+}
+.meteors li{
+  position:absolute; list-style:none;
+  top: var(--top); left: var(--left);
+  width: var(--len, 160px); height: 2px; border-radius: 9999px;
+  transform: rotate(-35deg) translateZ(0);
+  /* blue-teal glowing streak */
+  background: linear-gradient(90deg,
+              rgba(0,0,0,0) 0%,
+              rgba(56,189,248,.85) 25%,
+              rgba(34,211,238,1) 55%,
+              rgba(0,0,0,0) 100%);
+  animation: meteor var(--dur, 7s) var(--delay, 0s) linear infinite;
+  opacity: .95;
+}
+.meteors li::before{
+  content:""; position:absolute; right:-4px; top:-2px;
+  width:6px; height:6px; border-radius:9999px;
+  background: rgba(56,189,248,1);
+  box-shadow: 0 0 10px rgba(56,189,248,.9), 0 0 20px rgba(34,211,238,.7),
+              0 0 36px rgba(34,211,238,.55);
+}
+@keyframes meteor{
+  0%   { transform: translate3d(0,0,0) rotate(-35deg); opacity:0; }
+  8%   { opacity:1; }
+  92%  { opacity:1; }
+  100% { transform: translate3d(120vmax, 120vmax, 0) rotate(-35deg); opacity:0; }
+}
+
+/* ===== Components (unchanged) ===== */
+.btn-primary {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 24px; border-radius: 12px; font-weight: 600;
+  background-image: linear-gradient(90deg, #7c3aed, #4f46e5); color: #fff;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.35);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform .2s ease, box-shadow .2s ease, background-position .2s ease;
+  overflow: hidden;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 36px rgba(79,70,229,.45); }
+.btn-primary::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent, rgba(255,255,255,.28), transparent);
+  background-size: 200% 100%; opacity: 0; transition: opacity .3s ease;
+}
+.btn-primary:hover::after { opacity: .7; animation: sheen 1.2s linear infinite; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 20px; border-radius: 12px; font-weight: 600;
+  background: rgba(255,255,255,0.06); color: #fff;
+  border: 1px solid rgba(255,255,255,0.12); transition: background .2s ease, transform .2s ease;
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.12); transform: translateY(-1px); }
+
+@keyframes sheen { to { background-position-x: 150%; } }
+
+/* Role pills */
+.roles { display:flex; flex-wrap:wrap; gap:.6rem .7rem; margin:.2rem 0 0; padding:0; list-style:none; }
+.roles li{
+  padding:.55rem .9rem; border-radius:9999px;
+  background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.95);
+  border:1px solid rgba(255,255,255,0.16);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+  font-weight:700; letter-spacing:.15px;
+  font-size: clamp(.9rem, .85rem + .2vw, 1.05rem);
+}
+
+/* Contact popover */
+.contact-popover {
+  position:absolute; left:0; top:100%; margin-top:.5rem; z-index:50;
+  background: rgba(17, 24, 39, .92); backdrop-filter: blur(8px);
+  border:1px solid rgba(255,255,255,0.12); border-radius:12px;
+  padding:.6rem; min-width:260px; box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.contact-item { display:block; color:#fff; text-decoration:none; padding:.5rem .6rem; border-radius:10px; font-weight:600; }
+.contact-item:hover { background: rgba(255,255,255,0.08); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-gradient-pan, .bg-grid-anim, .meteors li { animation: none !important; }
+}

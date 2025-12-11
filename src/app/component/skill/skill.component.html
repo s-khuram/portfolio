@@ -1,0 +1,86 @@
+<section id="skills" class="skills-alt-wrap">
+  <!-- ⭐ shooting-stars background -->
+  <div class="shooting-bg" aria-hidden="true">
+    <span
+      class="meteor"
+      *ngFor="let m of meteors"
+      [style.top.%]="m.top"
+      [style.left.%]="m.left"
+      [style.animationDelay]="m.delay + 's'"
+      [style.animationDuration]="m.duration + 's'"
+      [style.width.px]="m.length"
+    >
+    </span>
+  </div>
+
+  <div class="container">
+    <!-- Centered section heading -->
+    <div class="section-head">
+      <h2 class="section-title"><span class="grad">Skills</span></h2>
+      <p class="section-sub">
+        Tools & platforms I use across data engineering, analytics, MLOps, and
+        cloud.
+      </p>
+      <div class="section-rule" aria-hidden="true"></div>
+    </div>
+
+    <div class="layout">
+      <!-- LEFT: Categories -->
+      <aside class="sidebar glass">
+        <div class="title">
+          <h2><span class="grad">Skills</span></h2>
+          <p class="muted">Browse by category</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Skill categories">
+          <button
+            #tab
+            class="tab"
+            [class.active]="active() === 'all'"
+            (click)="setActive('all')"
+            role="tab"
+            aria-controls="chips"
+            [attr.aria-selected]="active() === 'all'"
+          >
+            <span class="dot"></span> All
+          </button>
+
+          <button
+            #tab
+            class="tab"
+            *ngFor="let g of groups()"
+            [class.active]="active() === g.id"
+            (click)="setActive(g.id)"
+            role="tab"
+            aria-controls="chips"
+            [attr.aria-selected]="active() === g.id"
+          >
+            <span class="dot"></span> {{ g.label }}
+          </button>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Chip Wall -->
+      <section class="panel glass" #panel>
+        <div class="panel-head">
+          <h3 class="panel-title">{{ activeLabel() }}</h3>
+          <span class="count">{{ shownSkills().length }} items</span>
+        </div>
+
+        <div id="chips" #chipGrid class="chip-grid" role="list">
+          <div
+            #chip
+            class="chip"
+            *ngFor="let s of shownSkills()"
+            role="listitem"
+            [attr.aria-label]="s"
+          >
+            <span class="ico">{{ iconFor(s) }}</span>
+            <span class="label">{{ s }}</span>
+            <span class="shine" aria-hidden="true"></span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
