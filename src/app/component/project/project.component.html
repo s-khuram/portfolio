@@ -21,7 +21,11 @@
 
     <!-- Cards -->
     <div class="prj-grid">
-      <article class="prj-card" *ngFor="let p of projects; trackBy: trackByTitle" #card>
+      <article
+        class="prj-card"
+        *ngFor="let p of projects; trackBy: trackByTitle"
+        #card
+      >
         <header class="head">
           <h3 class="title">
             {{ p.title }}
@@ -41,23 +45,51 @@
     <footer class="prj-footer" #footer>
       <div class="footer-inner">
         <h3 class="footer-title">Let’s build something data-driven.</h3>
-        <p class="footer-sub">Reach out for detailed architectures and case studies.</p>
+        <p class="footer-sub">
+          Reach out for detailed architectures and case studies.
+        </p>
 
         <div class="contact-band" role="list">
           <!-- Email -->
-          <a class="pill" role="listitem" href="mailto:shaukhassan458%40gmail.com" aria-label="Email">
+          <a
+            class="pill"
+            role="listitem"
+            href="mailto:shaukhassan458%40gmail.com"
+            aria-label="Email"
+          >
             <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6"
-                    fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-            <span class="txt"><span class="em-user">shaukhassan458</span><span class="at">&#64;</span><span class="em-domain">gmail.com</span></span>
+            <span class="txt"
+              ><span class="em-user">khuram.s.data</span
+              ><span class="at">&#64;</span
+              ><span class="em-domain">gmail.com</span></span
+            >
           </a>
 
           <!-- Phone -->
-          <a class="pill" role="listitem" href="tel:+12133494589" aria-label="Call">
+          <a
+            class="pill"
+            role="listitem"
+            href="tel:+12133494589"
+            aria-label="Call"
+          >
             <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.92 4.2 2 2 0 0 1 4.86 2h2a2 2 0 0 1 2 1.72c.12.9.32 1.78.6 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.45a2 2 0 0 1 2.11-.45c.85.28 1.73.48 2.63.6A2 2 0 0 1 22 16.92z"
-                    fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M22 16.92v2a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.92 4.2 2 2 0 0 1 4.86 2h2a2 2 0 0 1 2 1.72c.12.9.32 1.78.6 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.45a2 2 0 0 1 2.11-.45c.85.28 1.73.48 2.63.6A2 2 0 0 1 22 16.92z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
             <span class="txt">(213) 349-4589</span>
           </a>
@@ -65,14 +97,22 @@
           <!-- Location -->
           <div class="pill" role="listitem" aria-label="Location">
             <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10zm0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
-                    fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10zm0-8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-            <span class="txt">West Chester, Ohio, 45071</span>
+            <span class="txt">Seattle, WA 98121</span>
           </div>
         </div>
 
-        <div class="rights">© {{ currentYear }} All rights reserved — <span>Shauk Hassan</span></div>
+        <div class="rights">
+          © {{ currentYear }} All rights reserved — <span>Khuram S.</span>
+        </div>
       </div>
     </footer>
   </div>
